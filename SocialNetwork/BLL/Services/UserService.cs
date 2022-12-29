@@ -13,11 +13,13 @@ namespace SocialNetwork.BLL.Services
 {
     public class UserService
     {
+        MessageService messageService;
         IUserRepository userRepository;
 
         public UserService()
         {
             userRepository = new UserRepository();
+            messageService = new MessageService();
         }
 
         public void Register(UserRegistrationData userRegistrationData)
@@ -74,6 +76,14 @@ namespace SocialNetwork.BLL.Services
             return ConstructUserModel(findUserEntity);
         }
 
+        public User FindById(int id)
+        {
+            var findUserEntity = userRepository.FindById(id);
+            if (findUserEntity is null) throw new UserNotFoundException();
+
+            return ConstructUserModel(findUserEntity);
+        }
+
         public void Update(User user)
         {
             var updatableUserEntity = new UserEntity()
@@ -94,6 +104,10 @@ namespace SocialNetwork.BLL.Services
 
         private User ConstructUserModel(UserEntity userEntity)
         {
+            var incomingMessages = messageService.GetIncomingMessagesByUserId(userEntity.id);
+
+            var outgoingMessages = messageService.GetOutcomingMessagesByUserId(userEntity.id);
+
             return new User(userEntity.id,
                 userEntity.firstname,
                 userEntity.lastname,
@@ -101,7 +115,9 @@ namespace SocialNetwork.BLL.Services
                 userEntity.email,
                 userEntity.photo,
                 userEntity.favorite_movie,
-                userEntity.favorite_book);
+                userEntity.favorite_book,
+                incomingMessages,
+                outgoingMessages);
         }
     }
 }

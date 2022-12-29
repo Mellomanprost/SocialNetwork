@@ -17,7 +17,7 @@ namespace SocialNetwork.PLL.Views
             while (true)
             {
                 Console.WriteLine("Incoming message: {0}", user.IncomingMessages.Count());
-                Console.WriteLine("Outcoming message: {0}", user.OutgoingMessage.Count());
+                Console.WriteLine("Outcoming message: {0}", user.OutgoingMessages.Count());
 
                 Console.WriteLine("View my profile information (press 1)");
                 Console.WriteLine("Edit my profile (press 2)");
@@ -55,7 +55,7 @@ namespace SocialNetwork.PLL.Views
                     }
                     case "6":
                     {
-                        Program.userOutcomingMessageView.Show(user.OutgoingMessage);
+                        Program.userOutcomingMessageView.Show(user.OutgoingMessages);
                         break;
                     }
                 }
