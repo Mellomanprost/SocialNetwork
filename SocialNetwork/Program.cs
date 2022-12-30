@@ -12,6 +12,7 @@ class Program
 {
     static MessageService messageService;
     static UserService userService;
+    static FriendService friendService;
     public static MainView mainView;
     public static RegistrationView registrationView;
     public static AuthenticationView authenticationView;
@@ -21,11 +22,14 @@ class Program
     public static MessageSendingView messageSendingView;
     public static UserIncomingMessageView userIncomingMessageView;
     public static UserOutcomingMessageView userOutcomingMessageView;
+    public static FriendAddView friendAddView;
+    public static UserFriendView userFriendView;
 
     static void Main(string[] args)
     {
         userService = new UserService();
         messageService = new MessageService();
+        friendService = new FriendService();
 
         mainView = new MainView();
         registrationView = new RegistrationView(userService);
@@ -36,6 +40,8 @@ class Program
         messageSendingView = new MessageSendingView(messageService, userService);
         userIncomingMessageView = new UserIncomingMessageView();
         userOutcomingMessageView = new UserOutcomingMessageView();
+        friendAddView = new FriendAddView(friendService, userService);
+        userFriendView = new UserFriendView();
 
         while (true)
         {
