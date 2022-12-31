@@ -28,7 +28,7 @@ namespace SocialNetwork.PLL.Views
             Console.Write("Enter your friend's email address: ");
             addFriendData.FriendEmail = Console.ReadLine();
 
-            addFriendData.UserId = user.Id;
+            addFriendData.senderFriendshipUserId = user.Id;
 
             try
             {

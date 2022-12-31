@@ -44,7 +44,7 @@ namespace SocialNetwork.BLL.Services
 
             var friendEntity = new FriendEntity()
             {
-                id = addFriendData.UserId,
+                user_id = addFriendData.senderFriendshipUserId,
                 friend_id = findUserEntity.id
             };
 
@@ -54,6 +54,7 @@ namespace SocialNetwork.BLL.Services
 
         /// Добавить метод удалить из друзей!!!
 
+        /// Скорее всего ненужный код
         private Friend ConstructUserModel(FriendEntity friendEntity)
         {
             return new Friend(friendEntity.id,
