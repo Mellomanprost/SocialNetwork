@@ -1,4 +1,5 @@
-﻿using SocialNetwork.BLL.Services;
+﻿using SocialNetwork.BLL.Models;
+using SocialNetwork.BLL.Services;
 using SocialNetwork.PLL.Views;
 
 

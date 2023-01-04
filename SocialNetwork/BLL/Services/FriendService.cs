@@ -45,15 +45,5 @@ namespace SocialNetwork.BLL.Services
             if (this.friendRepository.Create(friendEntity) == 0)
                 throw new Exception();
         }
-
-        /// Добавить метод удалить из друзей!!!
-
-        /// Скорее всего ненужный код
-        private Friend ConstructUserModel(FriendEntity friendEntity)
-        {
-            return new Friend(friendEntity.id,
-                friendEntity.user_id,
-                friendEntity.friend_id);
-        }
     }
 }

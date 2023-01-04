@@ -10,16 +10,16 @@
             switch (Console.ReadLine())
             {
                 case "1":
-                {
-                    Program.authenticationView.Show();
-                    break;
-                }
+                    {
+                        Program.authenticationView.Show();
+                        break;
+                    }
 
                 case "2":
-                {
-                    Program.registrationView.Show();
-                    break;
-                }
+                    {
+                        Program.registrationView.Show();
+                        break;
+                    }
             }
         }
     }

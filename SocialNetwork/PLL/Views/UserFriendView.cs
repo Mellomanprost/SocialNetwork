@@ -17,7 +17,7 @@ namespace SocialNetwork.PLL.Views
 
             allFriends.ToList().ForEach(friend =>
             {
-                Console.WriteLine("{0} is your friend", friend.Friend_Id);  // Сделать отображение имени друга
+                Console.WriteLine("User with ID{0} is your friend", friend.Friend_Id);  // Сделать отображение имени друга
             });
         }
     }
